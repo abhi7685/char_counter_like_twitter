@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>character counter like twitter</title>
+    </head>
+    <body>
+        <textarea
+            id="textarea-input"
+            cols="30"
+            rows="10"
+            maxlength="280"
+        ></textarea>
+        <p>Character left : <span id="character-left">0</span>/280</p>
+    </body>
+    <script>
+        const textareaInput = document.getElementById('textarea-input')
+        const maxLength = parseInt(textareaInput.getAttribute('maxlength'))
+        textareaInput.oninput = () => {
+            const counter = textareaInput.value.length
+            const characterLeft = maxLength - counter
+            document.getElementById('character-left').innerHTML = counter
+        }
+    </script>
+</html>
